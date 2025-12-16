@@ -36,7 +36,7 @@ def main():
     data_from_sheet = sheet.get_all_values()
     headers = data_from_sheet[0]
 
-    sheet.update('A1', 'Hello World')
+    sheet.update_cell(1, 1, 'Hello World')
 
 
 if __name__ == "__main__":
