@@ -20,3 +20,12 @@ CREDS = Credentials.from_service_account_file(
 SPREADSHEET_URL= "https://docs.google.com/spreadsheets/d/1OYDM-k9xUs7CSykw58ZUdOJEzNSqqXvJPpqHqwxOU5A"
 
 COLUMN_1 = 0 #TODO
+
+# Параметры для поиска вакансии
+SEARCH_PARAMS = {
+    "text": "Python OR Аналитик OR 'Системный аналитик",
+    "schedule": "remote",
+    "experience": "noExperience", #TODO СПИСОК
+    "per_page": 20, 
+    "page": 0
+}
