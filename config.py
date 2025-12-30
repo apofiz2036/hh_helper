@@ -5,6 +5,7 @@ from google.oauth2.service_account import Credentials
 
 load_dotenv()
 
+
 # Google API
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -20,6 +21,13 @@ CREDS = Credentials.from_service_account_file(
 SPREADSHEET_URL= "https://docs.google.com/spreadsheets/d/1OYDM-k9xUs7CSykw58ZUdOJEzNSqqXvJPpqHqwxOU5A"
 
 COLUMN_1 = 0 #TODO
+
+
+# --- Яндекс ---
+YANDEX_DISK_TOKEN = os.getenv("YANDEX_DISK_TOKEN")
+YANDEX_API_KEY = os.getenv("YANDEX_API_KEY")
+YANDEX_FOLDER_ID = os.getenv("YANDEX_FOLDER_ID")
+
 
 # Параметры для поиска вакансии
 SEARCH_PARAMS = {
