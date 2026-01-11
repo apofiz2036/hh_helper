@@ -42,9 +42,12 @@ def save_docx(text, name):
         # Создаем папку если ее нет
         os.makedirs("output_docs", exist_ok=True)
 
+        safe_name = re.sub(r'[<>:"/\\|?*]', '_', name)
+        safe_name = re.sub(r'\s+', '_', safe_name) 
+
         # Генерируем имя файла
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{name}_{timestamp}.docx"
+        filename = f"{safe_name}_{timestamp}.docx"
         local_path = os.path.join("output_docs", filename)
         
         # Создаем и сохраняем документ

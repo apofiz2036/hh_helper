@@ -45,6 +45,23 @@ def init_spreadsheet():
         return False
 
 
+def is_vacancy_exist(vacancy_id):
+    """Проверка есть ли вакансия в таблице"""
+    if not sheet:
+        return False
+    
+    try:
+        vacancy_id_str = str(vacancy_id)
+        existing_ids = sheet.col_values(1)
+
+        for existing_id in existing_ids[1:]:
+            if existing_id.strip() == vacancy_id_str:
+                return True
+        return False
+    except:
+        return False
+    
+
 def save_to_spreadsheet(vacancy_info, grade, doc_link):
     """Сохраняет данные вакансии в Google Sheets"""
     try:
@@ -90,8 +107,13 @@ def hh_search():
         data = response.json()
 
         for item in data['items']:
+            vacancy_id = item['id']
+            if is_vacancy_exist(vacancy_id):
+                print(f"Вакансия {vacancy_id} уже есть в таблице")
+                continue
+
             vacancy_info = {
-                'id': item['id'],
+                'id': vacancy_id,
                 'name': item['name'],
                 'city': item['area']['name'],
                 'salary': item.get('salary'),

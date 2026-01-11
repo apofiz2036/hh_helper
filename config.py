@@ -34,6 +34,6 @@ SEARCH_PARAMS = {
     "text": "Python OR Аналитик OR 'Системный аналитик",
     "schedule": "remote",
     "experience": "noExperience", #TODO СПИСОК
-    "per_page": 20, 
+    "per_page": 100, 
     "page": 0
 }
